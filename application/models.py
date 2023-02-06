@@ -7,9 +7,9 @@ class Shoppinglist(models.Model):
     list_id = models.UUIDField()
     item_id = models.ForeignKey('Item', on_delete=models.CASCADE)
     quantity = models.IntegerField()
-    price = models.DecimalField(decimal_places=2, max_digits=10)
+    price = models.DecimalField(decimal_places=2, max_digits=10, null=True)
     status = models.CharField(default='available', max_length=20)
-    buy_date = models.DateField()
+    buy_date = models.DateField(null=True)
 
 
 class UserList(models.Model):
