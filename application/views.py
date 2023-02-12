@@ -6,33 +6,53 @@ from application.models import Shoppinglist, Item, Malllist, UserList
 
 
 def index(request):
+    user_list = UserList.objects.filter(id=1).first()
     if request.method == 'POST':
         item_name = request.POST.get('item')
-        quantity = request.POST.get('quantity')
+        price = request.POST.get('price')
         shop_id = request.POST.get('shop')
-        shop_object = Malllist.objects.filter(id=shop_id).first()
+        shop_object = Malllist.objects.filter(pk=int(shop_id)).first()
         item_object = Item(name=item_name, shop_id=shop_object)
-        shoppinglist_object = Shoppinglist(item_id=item_object, quantity=quantity)
         item_object.save()
+        shoppinglist_object = Shoppinglist(
+            list_id=user_list.list_id,
+            item_id=item_object,
+            price=price)
         shoppinglist_object.save()
-    user_list = UserList.objects.first(user_id=1)
     result = Shoppinglist.objects.filter(list_id=user_list.list_id)
-    new_result = [item.__dict__ for item in result]
     return render(request, 'item_list.html',
-                  {'shoppinglist_data': new_result,
-                   'shops': Malllist.objects.all().filter(list_id=user_list.list_id)})
-
-
-def add_item(request):
-    return HttpResponse("Add Item")
+                  {'shoppinglist_data': result,
+                   'shops': Malllist.objects.all().filter(list_id=user_list.list_id),
+                   'items': Item.objects.all().filter(shop_id__list_id=user_list.list_id)})
 
 
 def buy_item(request, item_id):
-    return HttpResponse("Buy Item")
+    user_list = UserList.objects.filter(id=1).first()
+    if request.method == 'POST':
+        item_id_status = Shoppinglist.objects.filter(pk=int(item_id)).first()
+        item_id_status.status = 'bought'
+        item_id_status.save()
+    item_status = Shoppinglist.objects.filter(list_id=user_list.list_id)
+    return render(request, 'item_list.html',
+                  {'item_status': item_status,
+                   'shops': Malllist.objects.all().filter(list_id=user_list.list_id),
+                   'items': Item.objects.all().filter(shop_id__list_id=user_list.list_id)})
 
 
 def remove_item(request, item_id):
-    return HttpResponse("Remove Item")
+    user_list = UserList.objects.filter(id=1).first()
+    if request.method == 'POST':
+        item_remove = Item.objects.filter(pk=int(item_id)).first()
+        item_remove.delete()
+        itemshoplist_remove = Shoppinglist.objects.filter(item_id=item_remove).first()
+        itemshoplist_remove.delete()
+    item_delete = Item.objects.filter(shop_id__list_id=user_list.list_id)
+    itemshoplist_delete = Shoppinglist.objects.filter(list_id=user_list.list_id)
+    return render(request, 'item_list.html',
+                  {'item_delete': item_delete,
+                   'itemshoplist_delete': itemshoplist_delete,
+                   'shops': Malllist.objects.all().filter(list_id=user_list.list_id),
+                   'items': Item.objects.all().filter(shop_id__list_id=user_list.list_id)})
 
 
 def index_user(request):

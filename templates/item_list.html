@@ -5,23 +5,40 @@
     <title>Title</title>
 </head>
 <body>
-<h1> Add Items! </h1>
-<form action="/shoppinglist//" method="post">
+<h3> Add Items! </h3>
+<form action="/shoppinglist/" method="post">
     {% csrf_token %}
     <input type="text" name="item" placeholder="Item">
-    <input type="text" name="quantity" placeholder="Quantity">
-    <input type="text" name="shop" placeholder="Shop">
-<!--    <select name="shop">-->
-<!--    {% for shop in shops %}-->
-<!--        <option value="{{ shop.id }}">{{ shop.name }}</option>-->
-<!--    {% endfor %}-->
-<!--    </select>-->
+    <input type="text" name="price" placeholder="Price">
+    <select name="shop">
+        {% for shop in shops %}
+            <option value="{{ shop.id }}">{{ shop.name }}</option>
+        {% endfor %}
+    </select>
     <input type="submit" value="Add">
+
 <br>
-    {% for item in shoppinglist_data %}
-        <p>{{ item.item }} {{ item.quantity }} {{ item.shop }}</p>
-    {% endfor %}
-<br>
+{% for item in shoppinglist_data %}
+    <p>{{item.id }} - {{item.item_id}} - {{ item.item_id.name }} - {{ item.price }} - {{ item.item_id.shop_id.name }}
+    <h3> Buy and Remove Items! </h3>
+    <form action="/shoppinglist/ {{ item.item_id.id }} /buy" method="post">
+        {% csrf_token %}
+        <select name="item">
+            {% for item in items %}
+                <option value="{{ item.id }}">{{ item.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Buy">
+    <form action="/shoppinglist/ {{ item.item_id.id }} /remove" method="post">
+        {% csrf_token %}
+        <select name="item">
+            {% for item in items %}
+                <option value="{{ item.id }}">{{ item.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Remove">
+        </form></p>
+{% endfor %}
 </form>
 </body>
 </html>
