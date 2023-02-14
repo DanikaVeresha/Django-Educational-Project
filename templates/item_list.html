@@ -19,25 +19,7 @@
 
 <br>
 {% for item in shoppinglist_data %}
-    <p>{{item.id }} - {{item.item_id}} - {{ item.item_id.name }} - {{ item.price }} - {{ item.item_id.shop_id.name }}
-    <h3> Buy and Remove Items! </h3>
-    <form action="/shoppinglist/ {{ item.item_id.id }} /buy" method="post">
-        {% csrf_token %}
-        <select name="item">
-            {% for item in items %}
-                <option value="{{ item.id }}">{{ item.name }}</option>
-            {% endfor %}
-        </select>
-        <input type="submit" value="Buy">
-    <form action="/shoppinglist/ {{ item.item_id.id }} /remove" method="post">
-        {% csrf_token %}
-        <select name="item">
-            {% for item in items %}
-                <option value="{{ item.id }}">{{ item.name }}</option>
-            {% endfor %}
-        </select>
-        <input type="submit" value="Remove">
-        </form></p>
+    <p>{{item.id }} - {{item.item_id}} - {{ item.item_id.name }} - {{ item.price }} - {{ item.item_id.shop_id.name }}</p>
 {% endfor %}
 </form>
 </body>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3> Change purchase status !</h3>
+   <form action="/shoppinglist/ {{ item.item_id.id }} /buy" method="post">
+        {% csrf_token %}
+        <select name="item">
+            {% for item in items %}
+                <option value="{{ item.id }}">{{ item.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Buy">
+   </form>
+</body>
+</html>
