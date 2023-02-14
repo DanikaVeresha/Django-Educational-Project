@@ -22,5 +22,28 @@
     <p>{{item.id }} - {{item.item_id}} - {{ item.item_id.name }} - {{ item.price }} - {{ item.item_id.shop_id.name }} - {{ item.status }}</p>
 {% endfor %}
 </form>
+<br>
+<h3> Change purchase status !</h3>
+   <form action="/shoppinglist/ {{ item.item_id.id }} /buy" method="post">
+        {% csrf_token %}
+        <select name="item">
+            {% for item in items %}
+                <option value="{{ item.id }}">{{ item.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Buy">
+   </form>
+<br>
+<h3> Delete element !</h3>
+   <form action="/shoppinglist/ {{ item.item_id.id }} /remove" method="post">
+        {% csrf_token %}
+        <select name="item">
+            {% for item in items %}
+                <option value="{{ item.id }}">{{ item.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Remove">
+   </form>
 </body>
 </html>
+
