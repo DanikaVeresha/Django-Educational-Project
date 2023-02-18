@@ -8,7 +8,8 @@ from application.models import Shoppinglist, Item, Malllist, UserList
 def index(request):
     if not request.user.is_authenticated:
         return redirect('/user/login')
-    user_list = UserList.objects.filter(id=1).first()
+    user_id = request.user.id
+    user_list = UserList.objects.filter(id=user_id).first()
     if request.method == 'POST':
         item_name = request.POST.get('item')
         price = request.POST.get('price')
@@ -51,16 +52,20 @@ def remove_item(request, item_id):
     return redirect('/shoppinglist')
 
 
-def index_user(request):
-    return HttpResponse("Index User")
-
-
 def add_shop(request):
-    return HttpResponse("Add Shop")
-
-
-def add_user(request):
-    return HttpResponse("Add User")
+    if not request.user.is_authenticated:
+        return redirect('/user/login')
+    user_id = request.user.id
+    user_list = UserList.objects.filter(id=user_id).first()
+    if request.method == 'POST':
+        shop_name = request.POST.get('shop')
+        malllist_object = Malllist(name=shop_name, list_id=user_list.list_id)
+        malllist_object.save()
+    result = Shoppinglist.objects.filter(list_id=user_list.list_id)
+    return render(request, 'item_list.html',
+                  {'shoppinglist_data': result,
+                   'shops': Malllist.objects.all().filter(list_id=user_list.list_id),
+                   'items': Item.objects.all().filter(shop_id__list_id=user_list.list_id)})
 
 
 def analytics(request):

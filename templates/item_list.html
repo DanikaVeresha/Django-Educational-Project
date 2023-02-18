@@ -16,11 +16,17 @@
         {% endfor %}
     </select>
     <input type="submit" value="Add">
-
 <br>
 {% for item in shoppinglist_data %}
     <p>{{item.id }} - {{item.item_id}} - {{ item.item_id.name }} - {{ item.price }} - {{ item.item_id.shop_id.name }} - {{ item.status }}</p>
 {% endfor %}
+</form>
+<br>
+<h3> Add Shops! </h3>
+<form action="/shoppinglist/shop" method="post">
+    {% csrf_token %}
+    <input type="text" name="shop" placeholder="Shop">
+    <input type="submit" value="Add">
 </form>
 <br>
 <h3> Change purchase status !</h3>
