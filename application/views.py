@@ -71,3 +71,4 @@ def add_shop(request):
 def analytics(request):
     return HttpResponse("Analytics")
 
+
