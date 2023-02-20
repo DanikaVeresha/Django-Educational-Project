@@ -8,3 +8,6 @@ urlpatterns = [
     path('/invate', views.user_invate, name='user_invate')
 ]
 
+
+
+
