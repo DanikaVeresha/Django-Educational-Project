@@ -1,0 +1,61 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="3">
+            <item index="0" class="java.lang.String" itemvalue="value" />
+            <item index="1" class="java.lang.String" itemvalue="save" />
+            <item index="2" class="java.lang.String" itemvalue="a1" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N802" />
+          <option value="N803" />
+          <option value="N806" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="str.course" />
+          <option value="str.rate" />
+          <option value="str.available" />
+          <option value="int.course" />
+          <option value="int.available" />
+          <option value="int.rate" />
+          <option value="list.course" />
+          <option value="list.available" />
+          <option value="tuple.available" />
+          <option value="tuple.rate" />
+          <option value="tuple.course" />
+          <option value="tuple.currency_pairs" />
+          <option value="tuple.operationUAH" />
+          <option value="tuple.operationUSD" />
+          <option value="object.PIZZA.Pizza.__getitem__" />
+          <option value="tuple.calculating_your_age" />
+          <option value="tuple.age" />
+          <option value="tuple.enter" />
+          <option value="list.calculating_your_age" />
+          <option value="int.mama" />
+          <option value="object.PIZZA" />
+          <option value="list.Pizza" />
+          <option value="object.PIZZA.F.__getitem__" />
+          <option value="list.seen" />
+          <option value="tuple.seen" />
+          <option value="list.item" />
+          <option value="object.pizzeria" />
+          <option value="int.replace" />
+          <option value="str.replase" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
