@@ -1,4 +1,6 @@
 import uuid
+import datetime
+
 from django.test import Client
 
 from django.test import TestCase
@@ -69,17 +71,24 @@ class UserRegister(TestCase):
 
 
 class BuyItem(TestCase):
-    fixtures = ['buy_item_fixture.json']
+    fixtures = ['file_fixture.json']
 
     def test_buy_item(self):
-        shop_list1 = Shoppinglist.objects.filter(list_id='199f4b29-c369-4543-893b-913738076321').first()
+        shoppinglist_user1 = Shoppinglist.objects.filter(list_id='199f4b29-c369-4543-893b-913738076321').first()
         user = Client()
         user.login(username='user_2', password='2222')
-        response = user.post('/shoppinglist/<item_id>/buy', {'item': 9})
+        response = user.post('/shoppinglist/<item_id>/buy', {'item': 14})
         self.assertEqual(response.status_code, 302)
-
-        shop_list2 = Shoppinglist.objects.filter(list_id='199f4b29-c369-4543-893b-913738076321').first()
-        self.assertEqual('bought', shop_list2.status)
+        shoppinglist_user_cheese = Shoppinglist.objects.filter(list_id='199f4b29-c369-4543-893b-913738076321').first()
+        self.assertEqual('bought', shoppinglist_user_cheese.status)
+        response = user.post('/shoppinglist/<item_id>/buy', {'item': 15})
+        self.assertEqual(response.status_code, 302)
+        shoppinglist_user_cottage_cheese = Shoppinglist.objects.filter(list_id='199f4b29-c369-4543-893b-913738076321').first()
+        self.assertEqual('bought', shoppinglist_user_cheese.status)
+        response = user.post('/shoppinglist/<item_id>/buy', {'item': 16})
+        self.assertEqual(response.status_code, 302)
+        shoppinglist_user_meat_steak = Shoppinglist.objects.filter(list_id='199f4b29-c369-4543-893b-913738076321').first()
+        self.assertEqual('bought', shoppinglist_user_cheese.status)
 
 
 
