@@ -485,35 +485,24 @@
 },
 {
     "model": "application.shoppinglist",
-    "pk": 7,
+    "pk": 17,
     "fields": {
         "list_id": "199f4b29-c369-4543-893b-913738076321",
-        "item_id": 7,
-        "price": "190.00",
-        "status": "bought",
-        "buy_date": "2023-02-22"
-    }
-},
-{
-    "model": "application.shoppinglist",
-    "pk": 9,
-    "fields": {
-        "list_id": "199f4b29-c369-4543-893b-913738076321",
-        "item_id": 9,
-        "price": "56.00",
+        "item_id": 17,
+        "price": "99.60",
         "status": "available",
         "buy_date": null
     }
 },
 {
     "model": "application.shoppinglist",
-    "pk": 10,
+    "pk": 18,
     "fields": {
         "list_id": "199f4b29-c369-4543-893b-913738076321",
-        "item_id": 10,
-        "price": "38.00",
-        "status": "bought",
-        "buy_date": "2023-02-22"
+        "item_id": 18,
+        "price": "106.56",
+        "status": "available",
+        "buy_date": null
     }
 },
 {
@@ -556,37 +545,18 @@
 },
 {
     "model": "application.item",
-    "pk": 7,
+    "pk": 17,
     "fields": {
-        "name": " pork meat",
-        "shop_id": 5
-    }
-},
-{
-    "model": "application.item",
-    "pk": 9,
-    "fields": {
-        "name": "cottage cheese",
+        "name": "coffe",
         "shop_id": 6
     }
 },
 {
     "model": "application.item",
-    "pk": 10,
+    "pk": 18,
     "fields": {
-        "name": "milk",
-        "shop_id": 7
+        "name": "cottage cheese",
+        "shop_id": 5
     }
 }
 ]
-
-
-
-
-
-
-
-
-
-
-
