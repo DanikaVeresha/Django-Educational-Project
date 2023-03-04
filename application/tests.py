@@ -76,7 +76,7 @@ class BuyItem(TestCase):
     def test_buy_item(self):
         shoppinglist_user1 = Shoppinglist.objects.filter(list_id='199f4b29-c369-4543-893b-913738076321').first()
         user = Client()
-        user.login(username='user_2', password='2222')
+        user.login(username='user_2', password='2222') 
         response = user.post('/shoppinglist/<item_id>/buy', {'item': 14})
         self.assertEqual(response.status_code, 302)
         shoppinglist_user_cheese = Shoppinglist.objects.filter(list_id='199f4b29-c369-4543-893b-913738076321').first()
