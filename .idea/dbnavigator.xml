@@ -17,34 +17,39 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
-    <last-used-providers />
+    <last-used-providers>
+      <object-type object-type="TABLE" editor-provider="DATA" />
+    </last-used-providers>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="4d3fe0ec-c796-4869-89e6-ef81a8aa126d" object-ref="schemas/public/tables/application_item" />
+      <object connection-id="4d3fe0ec-c796-4869-89e6-ef81a8aa126d" object-ref="schemas/public/tables/application_shoppinglist" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="4d3fe0ec-c796-4869-89e6-ef81a8aa126d" dataset="public.application_userlist" active-filter-id="">
-      <filter id="920db861-226b-43eb-8d39-831c19875d87" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+    <filter-actions connection-id="4d3fe0ec-c796-4869-89e6-ef81a8aa126d" dataset="public.application_userlist" active-filter-id="EMPTY_FILTER">
+      <filter id="920db861-226b-43eb-8d39-831c19875d87" name="Filter" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="id" operator="=" value="" active="true" />
       </filter>
     </filter-actions>
-    <filter-actions connection-id="4d3fe0ec-c796-4869-89e6-ef81a8aa126d" dataset="public.auth_user" active-filter-id="">
-      <filter id="9bc9704b-57ec-4765-a3e0-166fa4db9df2" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+    <filter-actions connection-id="4d3fe0ec-c796-4869-89e6-ef81a8aa126d" dataset="public.auth_user" active-filter-id="EMPTY_FILTER">
+      <filter id="9bc9704b-57ec-4765-a3e0-166fa4db9df2" name="Filter" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="id" operator="=" value="" active="true" />
       </filter>
     </filter-actions>
-    <filter-actions connection-id="4d3fe0ec-c796-4869-89e6-ef81a8aa126d" dataset="public.application_shoppinglist" active-filter-id="">
-      <filter id="b32b52e7-1c47-42f2-815f-b3f076094c48" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+    <filter-actions connection-id="4d3fe0ec-c796-4869-89e6-ef81a8aa126d" dataset="public.application_shoppinglist" active-filter-id="EMPTY_FILTER">
+      <filter id="b32b52e7-1c47-42f2-815f-b3f076094c48" name="Filter" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="id" operator="=" value="" active="true" />
       </filter>
     </filter-actions>
-    <filter-actions connection-id="4d3fe0ec-c796-4869-89e6-ef81a8aa126d" dataset="public.application_malllist" active-filter-id="">
-      <filter id="aaa162b2-2bfa-4e5a-bd07-e128e490d542" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+    <filter-actions connection-id="4d3fe0ec-c796-4869-89e6-ef81a8aa126d" dataset="public.application_malllist" active-filter-id="EMPTY_FILTER">
+      <filter id="aaa162b2-2bfa-4e5a-bd07-e128e490d542" name="Filter" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="id" operator="=" value="" active="true" />
       </filter>
     </filter-actions>
-    <filter-actions connection-id="4d3fe0ec-c796-4869-89e6-ef81a8aa126d" dataset="public.application_item" active-filter-id="">
-      <filter id="efa34d0a-7c89-4f3e-8452-b3ba191afb7c" name="Filter 1" temporary="false" custom-name="true" type="basic" join-type="AND">
+    <filter-actions connection-id="4d3fe0ec-c796-4869-89e6-ef81a8aa126d" dataset="public.application_item" active-filter-id="EMPTY_FILTER">
+      <filter id="efa34d0a-7c89-4f3e-8452-b3ba191afb7c" name="Filter" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="id" operator="=" value="" active="true" />
       </filter>
     </filter-actions>

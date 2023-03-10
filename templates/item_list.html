@@ -23,7 +23,7 @@
 </form>
 <br>
 <h3> Add Shops! </h3>
-<form action="/shoppinglist/shop" method="post">
+<form action="shop" method="post">
     {% csrf_token %}
     <input type="text" name="shop" placeholder="Shop">
     <input type="submit" value="Add">
@@ -40,7 +40,7 @@
         <input type="submit" value="Buy">
    </form>
 <br>
-<h3> Delete element !</h3>
+<h3> Delete item !</h3>
    <form action="/shoppinglist/ {{ item.item_id.id }} /remove" method="post">
         {% csrf_token %}
         <select name="item">
@@ -52,6 +52,7 @@
    </form>
 </body>
 </html>
+
 
 
 

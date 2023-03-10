@@ -1,3 +1,6 @@
+
+import datetime
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from application.models import Shoppinglist, Item, Malllist, UserList
@@ -37,6 +40,7 @@ def buy_item(request, item_id):
         item_object = Item.objects.filter(pk=int(item_id)).first()
         shoppinglist_obj = Shoppinglist.objects.filter(item_id=item_object).first()
         shoppinglist_obj.status = 'bought'
+        shoppinglist_obj.buy_date = datetime.datetime.now()
         shoppinglist_obj.save()
     return redirect('/shoppinglist')
 
